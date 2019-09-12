@@ -20,6 +20,9 @@
 
 ```shell
 mysql -uroot -p
+
+-- 修改密码
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
 ```
 
 1-2、查询所有数据库
