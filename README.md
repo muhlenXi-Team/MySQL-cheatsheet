@@ -19,6 +19,8 @@
 1-1、登录数据库
 
 ```shell
+-- 登录
+-- mysql -u用户名 -p登录密码
 mysql -uroot -p
 
 -- 修改密码
