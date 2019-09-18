@@ -104,7 +104,7 @@ DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `student` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE `student` (
   CONSTRAINT `student_ibfk_4` FOREIGN KEY (`school_id`) REFERENCES `school` (`school_id`),
   CONSTRAINT `student_ibfk_5` FOREIGN KEY (`school_id`) REFERENCES `school` (`school_id`),
   CONSTRAINT `student_ibfk_6` FOREIGN KEY (`school_id`) REFERENCES `school` (`school_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +129,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'赵一','men',18,'2019-09-05 17:44:23',NULL,60,100),(2,'孙二','women',28,'2019-09-05 17:45:15',56,12,200),(3,'张三','men',20,'2019-09-05 17:45:41',23,NULL,100),(4,'李四','men',80,'2019-09-05 17:45:34',87,78,200),(5,'王五','women',56,'2019-09-05 17:45:47',44,56,300),(6,'胡六','men',42,'2019-09-05 17:45:47',23,34,400);
+INSERT INTO `student` VALUES (1,'赵一','men',18,'2019-09-05 17:44:23',NULL,60,100),(2,'孙二','women',28,'2019-09-05 17:45:15',56,12,200),(3,'张三','men',20,'2019-09-05 17:45:41',23,NULL,100),(4,'李四','men',80,'2019-09-05 17:45:34',87,78,200),(5,'王五','women',56,'2019-09-05 17:45:47',44,56,300),(6,'胡六六',NULL,0,'2019-09-05 17:45:47',0,0,400),(10,'Bob','man',11,NULL,100,99,400),(11,'王五五','man',11,NULL,100,99,400),(13,'李思思','man',11,NULL,100,99,400),(15,'李二二','man',11,'2019-09-17 12:14:26',100,99,300);
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,6 +162,33 @@ LOCK TABLES `student_copy` WRITE;
 INSERT INTO `student_copy` VALUES (1,'赵一','men',18,'2019-09-05 17:44:23',NULL,60,100),(2,'孙二','women',28,'2019-09-05 17:45:15',56,12,200),(3,'张三','men',20,'2019-09-05 17:45:41',23,NULL,100),(4,'李四','men',80,'2019-09-05 17:45:34',87,78,200),(5,'王五','women',56,'2019-09-05 17:45:47',44,56,300),(6,'胡六','men',42,'2019-09-05 17:45:47',23,34,400);
 /*!40000 ALTER TABLE `student_copy` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `sex` char(1) DEFAULT NULL,
+  `birthday` timestamp NULL DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'赵敏','F','2019-03-18 16:00:00','北大街'),(2,'周芷若','F','2018-01-10 16:00:00','峨眉山'),(3,'张无忌','M','2011-02-21 16:00:00','光明顶');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -172,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-11 20:19:33
+-- Dump completed on 2019-09-18 23:46:30
